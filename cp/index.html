@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+  const hash = window.location.hash.substring(1);
+
+  const params = new URLSearchParams(window.location.search);
+  const text = hash || params.get('p') || 'No Data';
+
+  document.body.innerText = decodeURIComponent(text);
+</script>
+</body>
+</html>
