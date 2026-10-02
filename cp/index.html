@@ -1,14 +1,298 @@
-<html>
-<head>
-</head>
-<body>
-<script>
-  const hash = window.location.hash.substring(1);
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rengan - Panoya Kopyala</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                background-color: #000;
+                color: #e9e9e9;
+                font-family: 'Roboto', sans-serif;
+                overflow: hidden;
+            }
 
-  const params = new URLSearchParams(window.location.search);
-  const text = hash || params.get('p') || 'No Data';
+            main {
+                width: 100vw;
+                height: 100vh;
+                overflow-y: auto;
+                scrollbar-width: none;
+                background: #111;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-sizing: border-box;
+            }
 
-  document.body.innerText = decodeURIComponent(text);
-</script>
-</body>
+            #main-site {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                flex: 1;
+                box-sizing: border-box;
+                padding: 20px;
+                position: relative;
+            }
+
+            .crt-effect::before {
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(18, 16, 16, 0) 50%,
+                    rgba(0, 0, 0, 0.25) 50%
+                );
+                background-size: 100% 4px;
+                z-index: 10;
+                pointer-events: none;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 600px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                z-index: 1;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin: 0 0 10px 0;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                cursor: pointer;
+                user-select: all;
+                padding: 6px 16px;
+                border-radius: 6px;
+                border: 1px solid transparent;
+                transition: all 0.2s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            h1:hover {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+
+            h1 .header-hint {
+                font-size: 0.9rem;
+                color: #666;
+                transition: color 0.2s ease;
+            }
+
+            h1:hover .header-hint {
+                color: #fff;
+            }
+
+            .text-box {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid #333;
+                border-radius: 6px;
+                padding: 20px;
+                margin: 15px 0;
+                font-size: 1.15rem;
+                line-height: 1.6;
+                word-break: break-all;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                user-select: all;
+                box-sizing: border-box;
+            }
+
+            .text-box:hover {
+                border-color: #fff;
+                background: rgba(255, 255, 255, 0.07);
+            }
+
+            .contact {
+                min-width: 180px;
+                height: 50px;
+                padding: 0 20px;
+                background: transparent;
+                border: #fff solid 1px;
+                border-radius: 4px;
+                color: #fff;
+                font-weight: bold;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin-top: 10px;
+                box-sizing: border-box;
+            }
+
+            .contact i {
+                margin-right: 8px;
+            }
+
+            .contact:hover {
+                background: #fff;
+                color: #000;
+                border-color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            }
+
+            .contact.copied {
+                background: #fff;
+                color: #000;
+            }
+
+            .hint {
+                color: #777;
+                font-size: 0.85rem;
+                margin-top: 12px;
+            }
+
+            footer {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                color: #666;
+            }
+
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+                .text-box {
+                    font-size: 1rem;
+                    padding: 15px;
+                }
+                .contact {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div id="main-site" class="crt-effect">
+                <div class="container">
+                    <h1 id="page-header" onclick="copyHeader()" title="Başlığı kopyalamak için tıkla">
+                        <span id="header-text"></span>
+                    </h1>
+
+                    <div
+                        id="copy-box"
+                        class="text-box"
+                        onclick="copyTextToClipboard()"
+                        title="Metni kopyalamak için tıkla"
+                    >
+                        
+                    </div>
+
+                    <button
+                        id="copy-btn"
+                        class="contact"
+                        onclick="copyTextToClipboard()"
+                    >
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="btn-text">Kopyala</span>
+                    </button>
+
+                    <p class="hint">Kopyalamak için başlığa, kutuya veya butona dokunabilirsin.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const headerParam = urlParams.get('header');
+            const headerTextEl = document.getElementById('header-text');
+
+            let rawHeaderText = '';
+            if (headerParam) {
+                rawHeaderText = decodeURIComponent(headerParam);
+            }
+            headerTextEl.textContent = rawHeaderText;
+
+            const pParam = urlParams.get('p') || window.location.hash.substring(1);
+            const boxEl = document.getElementById('copy-box');
+
+            let rawText = '';
+            if (pParam) {
+                rawText = decodeURIComponent(pParam);
+                boxEl.textContent = rawText;
+            } else {
+                boxEl.textContent = 'Görüntülenecek veri bulunamadı.';
+                boxEl.style.cursor = 'default';
+            }
+
+            function copyHeader() {
+                if (!rawHeaderText) return;
+
+                navigator.clipboard.writeText(rawHeaderText).then(() => {
+                    const originalText = headerTextEl.textContent;
+                    headerTextEl.textContent = 'KOPYALANDI!';
+
+                    setTimeout(() => {
+                        headerTextEl.textContent = originalText;
+                    }, 1500);
+                }).catch((err) => {
+                    alert('Başlık panoya kopyalanamadı.');
+                });
+            }
+
+            function copyTextToClipboard() {
+                if (!rawText) return;
+
+                navigator.clipboard.writeText(rawText).then(() => {
+                    const btn = document.getElementById('copy-btn');
+                    const btnText = document.getElementById('btn-text');
+                    const icon = btn.querySelector('i');
+
+                    btn.classList.add('copied');
+                    btnText.textContent = 'KOPYALANDI!';
+                    icon.className = 'fa-solid fa-check';
+
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btnText.textContent = 'Kopyala';
+                        icon.className = 'fa-regular fa-copy';
+                    }, 2000);
+                }).catch(() => {
+                    alert('Panoya kopyalanamadı.');
+                });
+            }
+        </script>
+    </body>
 </html>
