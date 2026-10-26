@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Rengan</title>
 		<link
-	rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-	rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
 		/>
 		<style>
 			body,
@@ -25,7 +25,7 @@
 				font-family: 'Roboto', sans-serif;
 				overflow: hidden;
 			}
-		
+
 			main {
 				width: 100vw;
 				height: 100vh;
@@ -34,22 +34,22 @@
 				background: #111;
 				color: white;
 			}
-		
+
 			h1 {
 				font-size: 3rem;
 				margin-top: 0;
 				text-align: center;
 			}
-			
+
 			h2 {
 				margin-top: 1rem;
 				text-align: center;
 			}
-		
+
 			p {
 				text-align: center;
 			}
-		
+
 			footer {
 				display: flex;
 				width: 100%;
@@ -61,23 +61,23 @@
 				font-size: 0.875rem;
 				line-height: 1.25rem;
 			}
-		
+
 			::-webkit-scrollbar {
 				width: 8px;
 				height: 8px;
 			}
-		
+
 			::-webkit-scrollbar-thumb {
 				background: rgb(63, 63, 63);
 				border-radius: 999px;
 				border: 2px solid transparent;
 				background-clip: padding-box;
 			}
-		
+
 			::-webkit-scrollbar-track {
 				background: transparent;
 			}
-		
+
 			#boot {
 				position: fixed;
 				top: 0;
@@ -92,13 +92,13 @@
 				flex-direction: column;
 				font-weight: bold;
 			}
-		
+
 			.logs {
 				margin-bottom: 5px;
 				font-size: 16px;
 				opacity: 0.9;
 			}
-		
+
 			.cursor {
 				display: inline-block;
 				width: 10px;
@@ -107,12 +107,12 @@
 				animation: blink 0.8s infinite;
 				vertical-align: middle;
 			}
-		
+
 			@keyframes blink {
 				0%, 100% { opacity: 1; }
 				50% { opacity: 0; }
 			}
-		
+
 			.grid-overlay {
 				position: absolute;
 				top: 0;
@@ -122,11 +122,11 @@
 				display: grid;
 				pointer-events: none;
 			}
-		
+
 			.grid-cell {
 				background-color: #000;
 			}
-		
+
 			#main-site {
 				display: flex;
 				flex-direction: column;
@@ -137,7 +137,7 @@
 				box-sizing: border-box;
 				padding: 20px;
 			}
-		
+
 			#main-site > div {
 				width: 100%;
 				max-width: 1200px; 
@@ -146,7 +146,7 @@
 				align-items: center;
 				text-align: center; 
 			}
-		
+
 			.calendar {
 				display: flex;
 				flex-direction: column;
@@ -154,18 +154,18 @@
 				width: 100%;
 				margin-top: 20px;
 			}
-		
+
 			.calendar img {
 				width: 100%;
 				height: auto;
 				max-width: 1000px;
 			}
-		
+
 			.contact-table {
 				margin: 0 auto;
 				border-spacing: 0;
 			}
-		
+
 			.crt-effect::before {
 				content: ' ';
 				display: block;
@@ -175,20 +175,20 @@
 				bottom: 0;
 				right: 0;
 				background: linear-gradient(
-					to bottom,
-					rgba(18, 16, 16, 0) 50%,
-					rgba(0, 0, 0, 0.25) 50%
+				to bottom,
+				rgba(18, 16, 16, 0) 50%,
+				rgba(0, 0, 0, 0.25) 50%
 				);
 				background-size: 100% 4px;
 				z-index: 10;
 				pointer-events: none;
 			}
-		
+
 			.contact-table td {
 				padding: 10px;
 				border: none;
 			}
-		
+
 			.contact {
 				width: 150px;
 				height: 50px;
@@ -205,11 +205,11 @@
 				text-transform: uppercase;
 				text-decoration: none;
 			}
-		
+
 			.contact i {
 				margin-right: 4px;
 			}
-		
+
 			.contact:hover {
 				background: #fff;
 				color: #000;
@@ -217,10 +217,10 @@
 				transform: translateY(-2px);
 				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 			}
-		
+
 			@media (max-width: 600px) {
 				pre { font-size: x-small; }
-			
+
 				.contact-table { width: 100%; }
 				.contact-table tr { display: block; }
 				.contact-table td {
@@ -234,16 +234,16 @@
 					height: 50px;
 					font-size: 16px;
 				}
-			
+
 				.calendar {
 					width: 100%;
 					display: block;
 				}
-			
+
 				.calendar h2 {
 					text-align: center;
 				}
-			
+
 				.calendar-scroll {
 					width: 100%;
 					overflow-x: auto;
@@ -251,7 +251,7 @@
 					display: flex;
 					justify-content: flex-start; 
 				}
-			
+
 				.calendar-scroll img {
 					min-width: 800px;
 					max-width: none;
@@ -266,94 +266,94 @@
 				<span class="cursor"></span>
 				<div id="grid-layer" class="grid-overlay"></div>
 			</div>
-		
+
 			<div id="main-site" class="crt-effect">
 				<div>
 					<h1>Rengan</h1>
 
 					<div>
-				<h3>Frameworks & Tools</h4>
-				<p>NodeJS, BunJS, NextJS, React, Tailwind, Unity, SQL, Git</p>
+						<h3>Frameworks & Tools</h3>
+						<p>NodeJS, BunJS, NextJS, React, Tailwind, Unity, SQL, Git</p>
 					</div>
-				
+
 					<div>
-				<h3>Languages</h4>
-				<p>C#, JS, TS, DM</p>
+						<h3>Languages</h3>
+						<p>C#, JS, TS, DM</p>
 					</div>
-				
+
 					<div>
-				<h2>Contact</h2>
-				<table class="contact-table">
-					<tr>
-						<td>
-					<a class="contact" href="https://github.com/Rengan02"><i class="fa-brands fa-github"></i>Github</a>
-						</td>
-						<td>
-					<a class="contact" href="https://discord.com/channels/@me/368695088718544896"><i class="fa-brands fa-discord"></		i>Discord</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-					<a class="contact" href="https://www.instagram.com/tlhaltndg/"><i class="fa-brands fa-instagram"></i>Instagram</a>
-						</td>
-						<td>
-					<a class="contact" href="https://www.linkedin.com/in/rengan07"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
-						</td>
-					</tr>
-				</table>
+						<h2>Contact</h2>
+						<table class="contact-table">
+							<tr>
+								<td>
+									<a class="contact" href="https://github.com/Rengan02"><i class="fa-brands fa-github"></i>Github</a>
+								</td>
+								<td>
+									<a class="contact" href="https://discord.com/channels/@me/368695088718544896"><i class="fa-brands fa-discord"></i>Discord</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a class="contact" href="https://www.instagram.com/tlhaltndg/"><i class="fa-brands fa-instagram"></i>Instagram</a>
+								</td>
+								<td>
+									<a class="contact" href="https://www.linkedin.com/in/rengan07"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
+								</td>
+							</tr>
+						</table>
 					</div>
-				
+
 					<div class="calendar">
-				<h2>Github Activity</h2>
-				<div class="calendar-scroll">
-					 <img src="https://ghchart.rshah.org/rengan02.svg" alt="Github Calendar" />
-				</div>
+						<h2>Github Activity</h2>
+						<div class="calendar-scroll">
+							<img src="https://ghchart.rshah.org/rengan02.svg" alt="Github Calendar" />
+						</div>
 					</div>
-				
+
 				</div>
 			</div>
 
 			<footer>© 2026 Rengan.</footer>
 		</main>
 		<script>
-		const boot = document.getElementById('boot');
-		const mainSite = document.getElementById('main-site');
-		const gridLayer = document.getElementById('grid-layer');
+			const boot = document.getElementById('boot');
+			const mainSite = document.getElementById('main-site');
+			const gridLayer = document.getElementById('grid-layer');
 
-		function wait(ms) {
-			return new Promise((resolve) => setTimeout(resolve, ms));
-		}
-
-		async function revealScreen() {
-			document.querySelector('.cursor').style.display = 'none';
-
-			const cols = 10;
-			const rows = 10;
-
-			gridLayer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-			gridLayer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-
-			const cells = [];
-			for (let i = 0; i < cols * rows; i++) {
-				const cell = document.createElement('div');
-				cell.className = 'grid-cell';
-				cell.style.backgroundColor = '#000';
-				gridLayer.appendChild(cell);
-				cells.push(cell);
+			function wait(ms) {
+				return new Promise((resolve) => setTimeout(resolve, ms));
 			}
 
-			boot.style.backgroundColor = 'transparent';
-			mainSite.style.display = 'flex';
+			async function revealScreen() {
+				document.querySelector('.cursor').style.display = 'none';
 
-			for (let i = 0; i < cells.length; i++) {
-				cells[i].style.backgroundColor = 'transparent';
-				await wait(1);
+				const cols = 10;
+				const rows = 10;
+
+				gridLayer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+				gridLayer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+				const cells = [];
+				for (let i = 0; i < cols * rows; i++) {
+					const cell = document.createElement('div');
+					cell.className = 'grid-cell';
+					cell.style.backgroundColor = '#000';
+					gridLayer.appendChild(cell);
+					cells.push(cell);
+				}
+
+				boot.style.backgroundColor = 'transparent';
+				mainSite.style.display = 'flex';
+
+				for (let i = 0; i < cells.length; i++) {
+					cells[i].style.backgroundColor = 'transparent';
+					await wait(1);
+				}
+
+				boot.remove();
 			}
 
-			boot.remove();
-		}
-
-		window.onload = revealScreen;
+			window.onload = revealScreen;
 		</script>
 	</body>
 </html>
